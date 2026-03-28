@@ -116,8 +116,13 @@ generate_linker_script(${PROJECT_NAME} "${LINKER_SCRIPT_INCLUDES}" "-D__DA14535_
 
 target_link_directories(${PROJECT_NAME} PRIVATE
     ${DIALOG_SDK_PATH}/sdk/gcc
+    ${DIALOG_SDK_PATH}/sdk/platform/system_library/output/IAR/
     ${DIALOG_SDK_PATH}/sdk/common_project_files/scatterfiles/
     ${DIALOG_SDK_PATH}/sdk/common_project_files/misc/
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    :da14535.a
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
@@ -130,6 +135,7 @@ target_link_options(${PROJECT_NAME} PRIVATE
     "-v"
     "-Wl,--no-wchar-size-warning" # Suppress the warning from linking Dialog's system library
     "-Wl,-Map,${PROJECT_NAME}.map" # Produce map file
+    "-Wl,-L${DIALOG_SDK_PATH}/sdk/common_project_files/misc" # for INCLUDE da14535_symbols.lds
 )
 
 # Post build actions
