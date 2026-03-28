@@ -116,13 +116,8 @@ generate_linker_script(${PROJECT_NAME} "${LINKER_SCRIPT_INCLUDES}" "-D__DA14535_
 
 target_link_directories(${PROJECT_NAME} PRIVATE
     ${DIALOG_SDK_PATH}/sdk/gcc
-    ${DIALOG_SDK_PATH}/sdk/platform/system_library/output/Keil_5/
     ${DIALOG_SDK_PATH}/sdk/common_project_files/scatterfiles/
     ${DIALOG_SDK_PATH}/sdk/common_project_files/misc/
-)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE
-    :da14535.lib
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE

@@ -8,7 +8,9 @@
  * - CMD Characteristic: 0xFFE3 (Write)
  */
 
-#include "da1458c_modules.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 #include "user_uart.h"
 
 /* 自定义 Service UUID */

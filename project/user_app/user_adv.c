@@ -7,7 +7,8 @@
  * - 广播间隔
  */
 
-#include "da1458c_modules.h"
+#include <stdint.h>
+#include <string.h>
 
 /* 自定义厂商 ID (可修改) */
 #define CUSTOM_COMPANY_ID      0xFFFF

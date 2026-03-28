@@ -7,7 +7,8 @@
  * - 透传模式: 连接后数据直接转发
  */
 
-#include "da1458c_modules.h"
+#include <stdint.h>
+#include <string.h>
 #include "user_ble_service.h"
 
 /* UART 缓冲区 */
