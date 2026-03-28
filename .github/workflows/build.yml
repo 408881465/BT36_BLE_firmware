@@ -1,0 +1,46 @@
+name: Build DX-BT36 Firmware
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi libnewlib-arm-none-eabi
+
+      - name: Build firmware
+        run |
+          cd project
+          make clean
+          make
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-binaries
+          path: |
+            project/build/*.hex
+            project/build/*.bin
+          retention-days: 30
+
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: project/build.log
+          retention-days: 7

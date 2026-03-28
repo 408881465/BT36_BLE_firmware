@@ -1,0 +1,4 @@
+[submodule "SDK/DA14535_SDK"]
+	path = SDK/DA14535_SDK
+	url = https://github.com/renesas/dialog-sdk.git
+	branch = main
