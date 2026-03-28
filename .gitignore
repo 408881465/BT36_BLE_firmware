@@ -1,0 +1,33 @@
+# Build outputs
+build/
+*.hex
+*.bin
+*.elf
+*.map
+
+# SDK archives
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.eww
+*.ewp
+*.ewd
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile*
+CTestTestfile.cmake
+
+# Temporary files
+*.tmp
+*.log
+SDK/
+*.zip
