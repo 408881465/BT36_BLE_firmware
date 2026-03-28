@@ -34,9 +34,9 @@ set(GLOBAL_DEBUG_OPTIONS -mthumb -mcpu=cortex-m0plus -Os -fmessage-length=0 -fsi
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     $<$<COMPILE_LANGUAGE:C,CXX,ASM>:__DA14535__>
+    $<$<COMPILE_LANGUAGE:C,CXX,ASM>:__DA14531__>
     $<$<COMPILE_LANGUAGE:C,CXX>:GPIO_DRV_PIN_ALLOC_MON_DISABLED>
     -DDEBUG_SEGGER
-    -DCFG_TRNG=0
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
