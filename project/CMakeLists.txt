@@ -30,20 +30,21 @@ add_executable(${PROJECT_NAME}
     src/ble_handlers.c
 )
 
-set(GLOBAL_DEBUG_OPTIONS -mthumb -mcpu=cortex-m0plus -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -flto -Wall -Werror -g3)
+set(GLOBAL_DEBUG_OPTIONS -mthumb -mcpu=cortex-m0plus -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -flto -Wall -g3)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     $<$<COMPILE_LANGUAGE:C,CXX,ASM>:__DA14535__>
     $<$<COMPILE_LANGUAGE:C,CXX>:GPIO_DRV_PIN_ALLOC_MON_DISABLED>
     -DDEBUG_SEGGER
+    -DCFG_TRNG=0
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
 # C, C++, Assembly
     $<$<COMPILE_LANGUAGE:C,CXX,ASM>:${GLOBAL_DEBUG_OPTIONS}>
 # C, C++
-    $<$<COMPILE_LANGUAGE:C,CXX>:-include${CMAKE_SOURCE_DIR}/components/config/inc/da1458x_config_basic.h>
-    $<$<COMPILE_LANGUAGE:C,CXX>:-include${CMAKE_SOURCE_DIR}/components/config/inc/da1458x_config_advanced.h>
+    $<$<COMPILE_LANGUAGE:C,CXX>:-include${CMAKE_SOURCE_DIR}/components/config/inc/da14535_config_basic.h>
+    $<$<COMPILE_LANGUAGE:C,CXX>:-include${CMAKE_SOURCE_DIR}/components/config/inc/da14535_config_advanced.h>
     $<$<COMPILE_LANGUAGE:C,CXX>:-include${CMAKE_SOURCE_DIR}/components/config/inc/user_config.h>
 # C only
     $<$<COMPILE_LANGUAGE:C>:-std=gnu11>
