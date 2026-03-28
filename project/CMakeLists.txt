@@ -66,6 +66,7 @@ set(USER_INCLUDES
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/components/config/inc
     ${CMAKE_SOURCE_DIR}/components/debug/inc
+    ${CMAKE_SOURCE_DIR}/src
     # GCC includes
 )
 
